@@ -5,18 +5,19 @@ pool:
   vmImage: ubuntu-latest
 
 parameters:
-  - name: resource-group
+  - name: resourcegroup
     type: object
     default:
     - rg-ando-01
     - rg-hibi-annotation-01
 
 steps:
-- task: AzureCLI@2
-  displayName: Close VM using az cli
-  inputs:
-    azureSubscription: 'YOUR_SUBSCRIPTION_HERE'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'az resource list --resource-group ${{ resource-group }}  --output table'
+- ${{ each value in parameters.resourcegroup }}:
+  - task: AzureCLI@2
+    displayName: Close VM using az cli
+    inputs:
+      azureSubscription: 'YOUR_SUBSCRIPTION_HERE'
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: 'az resource list --resource-group ${{ resourcegroup }}  --output table'
 
