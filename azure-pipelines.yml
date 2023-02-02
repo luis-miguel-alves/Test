@@ -19,5 +19,5 @@ steps:
       azureSubscription: 'YOUR_SUBSCRIPTION_HERE'
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
-      inlineScript: 'az resource list --resource-group ${{ resourcegroup }}  --output table'
+      inlineScript: 'az resource list --resource-group ${{ value }}  --output table'
 
