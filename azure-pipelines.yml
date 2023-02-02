@@ -16,7 +16,7 @@ steps:
   - task: AzureCLI@2
     displayName: Close VM using az cli
     inputs:
-      azureSubscription: 'YOUR_SUBSCRIPTION_HERE'
+      azureSubscription: '91886281-7aa5-4732-8c3a-56a94b18ad1a'
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
       inlineScript: 'az resource list --resource-group ${{ value }}  --output table'
