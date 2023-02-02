@@ -5,7 +5,7 @@ pool:
   vmImage: ubuntu-latest
 
 parameters:
-  - name: resource_group
+  - name: resource-group
     type: object
     default:
     - rg-ando-01
@@ -18,5 +18,5 @@ steps:
     azureSubscription: 'YOUR_SUBSCRIPTION_HERE'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az resource list --resource-group ${{ resource_group }}  --output table'
+    inlineScript: 'az resource list --resource-group ${{ resource-group }}  --output table'
 
